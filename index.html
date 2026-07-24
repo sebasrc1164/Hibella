@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HiBella | Cosméticos y Skincare</title>
+
+    <meta name="description"
+        content="Descubre maquillaje, skincare y accesorios de belleza originales en HiBella.">
+
+    <link rel="icon" href="img/logo.png">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+
+            <img src="img/logo.png" alt="HiBella">
+
+        </a>
+
+     <ul class="menu">
+
+    <li>
+        <a href="#inicio">Inicio</a>
+    </li>
+
+    <li>
+        <a href="#catalogo">Catálogo</a>
+    </li>
+
+    <li>
+        <a href="#nosotros">Nosotros</a>
+    </li>
+
+    <li>
+        <a href="#contacto">Contacto</a>
+    </li>
+
+</ul>
+
+        <div class="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <a href="https://wa.me/573003806319?text=Hola%20HiBella%2C%20quiero%20realizar%20una%20compra"
+   class="btn-menu"
+   target="_blank">
+    <i class="fa-brands fa-whatsapp"></i> Comprar
+</a>
+
+    </nav>
+
+</header>
+
+<section id="inicio" class="hero">
+
+    <div class="hero-texto">
+
+        <span> Bienvenid@ a HiBella</span>
+
+        <h1>
+
+            Realza tu belleza .
+
+        </h1>
+
+        <p>
+Maquillaje, skincare y accesorios para resaltar tu estilo.
+</p>
+
+        <div class="botones">
+
+    <a href="https://wa.me/573003806319?text=Hola%20HiBella%2C%20quiero%20realizar%20una%20compra" class="btn-principal">
+        <i class="fa-brands fa-whatsapp"></i>&nbsp; Comprar
+    </a>
+
+    <a href="#catalogo" class="ver-catalogo">
+        Ver catálogo ↓
+    </a>
+
+    <a href="#" class="btn-secundario">
+        <i class="fa-solid fa-book-open"></i>&nbsp; Catálogo
+    </a>
+
+    <a href="https://instagram.com/hibellaa.co" class="btn-secundario">
+        <i class="fa-brands fa-instagram"></i>&nbsp; Instagram
+    </a>
+
+</div>
+    </div>
+
+    <div class="hero-imagen">
+    <img src="img/logo.png" alt="Logo HiBella">
+
+    <p class="frase-logo">
+        Belleza • Elegancia • Confianza
+    </p>
+</div>
+
+</section>
+
+<section id="catalogo" class="catalogo">
+
+    <div class="titulo-seccion">
+
+        <span>Nuestros Productos</span>
+
+        <h2>Encuentra tu favorito</h2>
+
+        <p>
+            Explora nuestro catálogo de maquillaje, skincare y accesorios.
+        </p>
+
+    </div>
+
+
+<div class="ordenar-productos">
+             <label for="ordenar">Ordenar por:</label>
+<p>
+
+</p>
+    <select id="ordenar">
+        <option value="recomendados">Recomendados</option>
+        <option value="precio-menor">Precio: menor a mayor</option>
+        <option value="precio-mayor">Precio: mayor a menor</option>
+        <option value="az">Nombre: A-Z</option>
+        <option value="za">Nombre: Z-A</option>
+    </select>
+</div>
+
+<div class="filtro-marca">
+    <label for="filtro-marca">Marca:</label>
+
+    <select id="filtro-marca">
+        <option value="todas">Todas las marcas</option>
+        <option value="bioqua">Bioqua</option>
+        <option value="victoria spirit">Victoria Spirit</option>
+        <option value="modaiya">Modaiya</option>
+        <option value="revox">Revox</option>
+        <option value="ever beauty">Ever Beauty</option>
+        <option value="miss vanessa">Miss Vanessa</option>
+        <option value="bloomshell">Bloomshell</option>
+        <option value="pola aylr">Pola Aylr</option>
+    </select>
+</div>
+
+    <div class="categorias">
+
+        <button class="activo" data-categoria="Todo">Todo</button>
+<button data-categoria="Maquillaje">Maquillaje</button>
+<button data-categoria="Cuidado facial">Cuidado facial</button>
+<button data-categoria="Labios">Labios</button>
+<button data-categoria="Ojos y cejas">Ojos y cejas</button>
+<button data-categoria="Accesorios">Accesorios</button>
+
+    </div>
+
+    <p id="contador-productos" class="contador-productos"></p>
+
+<div class="buscador">
+    <input
+        type="text"
+        id="buscar"
+        placeholder="🔍 Buscar producto...">
+<div class="productos-grid" id="productos-grid">
+</div>
+
+<div class="ver-todos-contenedor">
+    <button id="ver-todos" class="btn-principal">
+        Ver todos los productos
+    </button>
+</div>
+
+<div id="panel-seleccion" class="panel-seleccion">
+
+    <div class="panel-seleccion-header">
+        <h3>Tu selección</h3>
+
+        <button id="cerrar-seleccion" type="button">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div id="lista-seleccion" class="lista-seleccion">
+    </div>
+
+</div>
+
+<div id="barra-seleccion" class="barra-seleccion">
+
+    <div class="resumen-seleccion">
+        <span id="cantidad-seleccionados">0 productos seleccionados</span>
+    </div>
+
+    <button id="consultar-whatsapp" type="button">
+        <i class="fa-brands fa-whatsapp"></i>
+        Consultar selección
+    </button>
+
+</div>
+
+</section>
+
+<section class="beneficios">
+
+    <div class="titulo-seccion">
+        <span>¿Por qué elegirnos?</span>
+        <h2>Compra con confianza</h2>
+    </div>
+
+    <div class="beneficios-grid">
+
+        <div class="beneficio">
+            <i class="fa-solid fa-gem"></i>
+            <h3>Productos originales</h3>
+            <p>Trabajamos con maquillaje y skincare de excelente calidad.</p>
+        </div>
+
+        <div class="beneficio">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Envíos</h3>
+            <p>Realizamos envíos a Cartagena y al resto de Colombia.</p>
+        </div>
+
+        <div class="beneficio">
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3>Atención personalizada</h3>
+            <p>Te ayudamos a escoger el producto ideal para ti.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="nosotros" class="nosotros">
+
+  <div class="nosotros-img">
+
+    <img src="img/productos/personaje.png" alt="HiBella" class="nosotros-logo">
+
+
+</div>
+
+    <div class="nosotros-texto">
+
+        <span>Sobre HiBella</span>
+
+        <h2>Belleza que inspira confianza</h2>
+
+        <p>
+            En HiBella creemos que cada persona merece sentirse hermosa y segura de sí misma. Por eso seleccionamos cuidadosamente maquillaje, skincare y accesorios de excelente calidad para ofrecerte una experiencia única.
+        </p>
+
+        <p>
+            Nuestro compromiso es brindarte productos originales, atención personalizada y un servicio cercano para ayudarte a encontrar justo lo que necesitas.
+        </p>
+
+        <a href="https://wa.me/573003806319" class="btn-principal" target="_blank">
+            Hablar por WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+<section class="testimonios">
+
+    <div class="titulo-seccion">
+        <span>Clientes felices</span>
+        <h2>Lo que dicen de HiBella</h2>
+    </div>
+
+    <div class="testimonios-grid">
+
+        <div class="testimonio">
+            <div class="estrellas">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Excelente atención y los productos llegaron muy rápido. La calidad es increíble."
+            </p>
+
+            <h4>María Garcia Montalvo</h4>
+        </div>
+
+        <div class="testimonio">
+            <div class="estrellas">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Compré maquillaje y skincare. Todo original y muy bien empacado."
+            </p>
+
+            <h4>Laura Padilla Estrada</h4>
+        </div>
+
+        <div class="testimonio">
+            <div class="estrellas">
+                ⭐⭐⭐⭐⭐
+            </div>
+
+            <p>
+                "Mi tienda favorita para comprar cosméticos. Muy recomendada."
+            </p>
+
+            <h4>Sofía Ramirez Ocoro</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contacto" class="contacto">
+
+    <div class="titulo-seccion">
+        <span>Contáctanos</span>
+        
+        
+    </div>
+
+    <div class="contacto-grid">
+
+        <div class="info-contacto">
+
+            
+            <p>
+<i class="fa-solid fa-phone"></i>
+&nbsp;+57 300 380 6319
+</p>
+
+<p>
+<i class="fa-brands fa-instagram"></i>
+&nbsp;@hibellaa.co
+</p>
+
+<p>
+<i class="fa-solid fa-location-dot"></i>
+&nbsp;Cartagena, Colombia
+</p>
+
+        </div>
+
+    
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-contenido">
+
+        <div class="footer-logo">
+
+            <img src="img/logo.png" alt="HiBella">
+
+            <p>
+                Belleza • Elegancia • Confianza
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <h3>Enlaces</h3>
+
+            <a href="#">Inicio</a>
+
+            <a href="#catalogo">Catálogo</a>
+
+            <a href="#nosotros">Nosotros</a>
+
+            <a href="#contacto">Contacto</a>
+
+        </div>
+
+        <div class="footer-redes">
+
+            <h3>Síguenos</h3>
+
+            <a href="https://instagram.com/hibellaa.co" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+
+            <a href="https://wa.me/573003806319" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 HiBella | Todos los derechos reservados.
+
+    </div>
+
+</footer>
+
+<script src="js/productos.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
