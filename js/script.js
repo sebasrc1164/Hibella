@@ -9,13 +9,32 @@ const contadorProductos = document.getElementById("contador-productos");
 
 let productosSeleccionados = [];
 
-function mostrarProductos(categoria = "Todo") {
+function mostrarProductos(categoria = "Recomendados") {
 
     contenedor.innerHTML = "";
 
    let lista = productos;
 
-if (categoria !== "Todo") {
+const nombresRecomendados = [
+    "Espuma Facial de Arroz Bioqua",
+    "Suero de Arroz Bioqua",
+    "Crema Hidratante de Arroz Bioqua",
+    "Kit de Arroz Bioqua",
+    "Base Líquida Lulú By Atenea",
+    "Allure Dúo de Rubor en Crema y Compacto Atenea - Pinkcrush",
+    "Pestañina Trópico Ruby Rose",
+    "Iluminador Samy Diamond Glow"
+];
+
+if (categoria === "Recomendados") {
+
+    lista = productos.filter(producto =>
+        nombresRecomendados.includes(producto.nombre)
+    );
+
+}
+
+if (categoria !== "Recomendados") {
 
     lista = productos.filter(producto => {
 
@@ -114,18 +133,22 @@ if (ordenar) {
 }
 
 if (contadorProductos) {
-    if (categoria === "Todo") {
+
+    if (categoria === "Recomendados") {
+
         contadorProductos.textContent =
-            `${productos.length} productos disponibles`;
+            `${lista.length} productos recomendados`;
+
     } else {
+
         contadorProductos.textContent =
             `${lista.length} productos encontrados`;
+
     }
+
 }
 
-const productosAMostrar = categoria === "Todo"
-    ? lista.slice(0, 8)
-    : lista;
+const productosAMostrar = lista;
 
 productosAMostrar.forEach(producto => {
 
@@ -180,70 +203,7 @@ ${producto.variantes ? `
             </div>
         `;
 
-const botonVerTodos = document.getElementById("ver-todos");
 
-botonVerTodos.addEventListener("click", () => {
-
-    contenedor.innerHTML = "";
-
-    productos.forEach(producto => {
-
-        contenedor.innerHTML += `
-            <div class="card-producto">
-
-                <div class="imagen-producto">
-                    <img
-                        src="${producto.imagen}"
-                        data-original="${producto.imagen}"
-                        data-hover="${producto.imagen2 || producto.imagen}"
-                        alt="${producto.nombre}">
-                </div>
-
-                <h3>${producto.nombre}</h3>
-
-                ${producto.variantes ? `
-                    <select class="selector-variante">
-                        ${producto.variantes.map((variante, index) => `
-                            <option
-                                value="${index}"
-                                data-precio="${variante.precio}"
-                                data-tamano="${variante.tamaño}">
-                                ${variante.tamaño}
-                            </option>
-                        `).join("")}
-                    </select>
-                ` : ""}
-
-                <p class="precio">
-                    $${producto.precio.toLocaleString("es-CO")}
-                </p>
-
-                <button
-    type="button"
-    class="btn-principal btn-agregar ${
-        productosSeleccionados.some(item =>
-            item.nombre === producto.nombre
-        )
-            ? "agregado"
-            : ""
-    }"
-    data-nombre="${producto.nombre}">
-    ${
-        productosSeleccionados.some(item =>
-            item.nombre === producto.nombre
-        )
-            ? "✓ Agregado"
-            : "+ Agregar"
-    }
-</button>
-
-            </div>
-        `;
-    });
-
-    botonVerTodos.style.display = "none";
-
-});
 
     });
 
@@ -367,14 +327,10 @@ buscar.addEventListener("input", () => {
 
     } else {
 
-        // Si borra la búsqueda, volvemos a los 8 productos iniciales
-        mostrarProductos("Todo");
+        // Si borra la búsqueda, volvemos a los productos recomendados
+mostrarProductos("Recomendados");
 
-        const botonVerTodos = document.getElementById("ver-todos");
 
-        if (botonVerTodos) {
-            botonVerTodos.style.display = "";
-        }
 
     }
 
@@ -431,7 +387,7 @@ const selectorOrden = document.getElementById("ordenar");
 selectorOrden.addEventListener("change", () => {
 
     const categoriaActiva =
-        document.querySelector(".categorias .activo")?.dataset.categoria || "Todo";
+    document.querySelector(".categorias .activo")?.dataset.categoria || "Recomendados";
 
     mostrarProductos(categoriaActiva);
 
@@ -446,13 +402,7 @@ filtroMarca.addEventListener("change", () => {
     // Si selecciona "Todas las marcas"
     if (marca === "todas") {
 
-        mostrarProductos("Todo");
-
-        const botonVerTodos = document.getElementById("ver-todos");
-
-        if (botonVerTodos) {
-            botonVerTodos.style.display = "";
-        }
+       
 
         return;
     }
