@@ -217,6 +217,16 @@ const productos = [
 ==================================*/
 
 {
+    id: 132,
+    nombre: "Kit de Colageno Bioqua",
+    precio: 50000,
+    imagen: "img/productos/27.jpg",
+    categoria: "skincare",
+    marca: "Bioqua"
+},
+
+
+{
     id: 5,
     nombre: "Kit de Vitamina C Bioqua",
     precio: 48000,
@@ -335,18 +345,18 @@ const productos = [
 
 {
     id: 11,
-    nombre: "Spray Fijador Fix",
-    precio: 18000,
-    imagen: "img/productos/123.jpg",
+    nombre: "Primer LULA",
+    precio: 28000,
+    imagen: "img/productos/144.jpg",
     categoria: "preparacion",
     marca: "Fix"
 },
 
 {
     id: 12,
-    nombre: "Spray Fijador Colores",
-    precio: 18000,
-    imagen: "img/productos/124.jpg",
+    nombre: "Primer HI, ZIS", 
+    precio: 23500,
+    imagen: "img/productos/174.jpg",
     categoria: "preparacion",
     marca: "Fix"
 },
@@ -660,7 +670,7 @@ const productos = [
     id: 42,
     nombre: "Paleta de Sombras Amoreis Beauty Is Sweet",
     precio: 20000,
-    imagen: "img/productos/72.jpg",
+    imagen: "img/productos/83.jpg",
     categoria: "maquillaje",
     marca: "Amoreis"
 },
@@ -985,7 +995,7 @@ const productos = [
     id: 74,
     nombre: "Lip Oil Melu Ruby Rose",
     precio: 10000,
-    imagen: "img/productos/102.jpg",
+    imagen: "img/productos/112.jpg",
     categoria: "maquillaje",
     marca: "Melu"
 },
@@ -1021,7 +1031,7 @@ const productos = [
     id: 78,
     nombre: "Lip Gloss Choco Bomb Victoria Spirit",
     precio: 6000,
-    imagen: "img/productos/105.jpg",
+    imagen: "img/productos/116.jpg",
     categoria: "maquillaje",
     marca: "Victoria Spirit"
 },
@@ -1030,7 +1040,7 @@ const productos = [
     id: 79,
     nombre: "Lip Gloss Sugar Rush Ame",
     precio: 22000,
-    imagen: "img/productos/116.jpg",
+    imagen: "img/productos/115.jpg",
     categoria: "maquillaje",
     marca: "Ame"
 },
@@ -1146,7 +1156,7 @@ const productos = [
 ==================================*/
 
 {
-    id: 88,
+    id: 133,
     nombre: "Agua de Rosas 500 ml",
     precio: 10000,
     imagen: "img/productos/128.png",
@@ -1154,7 +1164,7 @@ const productos = [
     marca: ""
 },
 {
-    id: 89,
+    id: 134,
     nombre: "Agua de Rosas 1000 ml",
     precio: 14000,
     imagen: "img/productos/129.png",
